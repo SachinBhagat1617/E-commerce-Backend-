@@ -21,7 +21,6 @@ exports.addProduct = async (req, res, next) => {
         secure_url: result.secure_url,
       });
     }
-
     req.body.photos = imageArr;
     req.body.user = req.user.id; // user of db mai jo add kar raha hai uska id store karo (req.user.id comes from middleware)
     const product = await Product.create(req.body); // req.body mai name,description,brand,photos,price, category, user, created_at sab aa gaya
@@ -256,7 +255,7 @@ exports.getAllReviewsOfSingleProduct = async (req, res, next) => {
       reviews: product.reviews,
     });
   } catch (error) {
-    console.log(error)
-    res.send(error)
+    console.log(error);
+    res.send(error);
   }
-}
+};
